@@ -1,21 +1,54 @@
-    <div>
-        <div>Search for a city to know the forecast for the next few days:</div>
-        <form action="">
-            <div>
-                <label for="city-input-type">Criteria: Name (Ex: London) or Coordinates (Ex: 51.509865,
-                    -0.118092)</label>
-                <input type="radio" name="city-input-type" id="" value="Name" />
-                <input type="radio" name="city-input-type" id="" value="Coordinates" />
-            </div>
-            <div>
-                <input type="text" name="city-input" id="" />
-                <input type="button" value="Search" />
-            </div>
-        </form>
+<div class="search-container">
+    <div>Search for a city to know the forecast for the next few days, criteria:</div>
+    <form action="">
+        <div>
+            <input type="radio" name="city-input-type" id="city-input-name" value="Name" checked />
+            <label for="city-input-name">Name (Ex: London)</label>
+            <input type="radio" name="city-input-type" id="city-input-coordinates" value="Coordinates" />
+            <label for="city-input-coordinates">Lat-Long pair (Ex: 51.509865, -0.118092)</label>
+        </div>
+        <div>
+            <input type="text" name="city-input" id="" />
+            <input type="button" value="Search" />
+        </div>
+    </form>
+</div>
+<div class="current-weather">
+    <div>Local found: </div>
+    <div>Weather</div>
+    <div>Current Temp</div>
+    <div>Humidity</div>
+    <div>Wind speed</div>
+</div>
+<div class="future-weather">
+    <div class="day1">
+        <div>Weather:</div>
+        <div>Max temp</div>
+        <div>Min temp</div>
+        <div>Precipitation</div>
     </div>
-    <div>
-        <div>Local found: </div>
-        <div><div>Current</div>
-    <div></div></div>
-        
+    <div class="day2">
+        <div>Weather:</div>
+        <div>Max temp</div>
+        <div>Min temp</div>
+        <div>Precipitation</div>
     </div>
+    <div class="day3">
+        <div>Weather:</div>
+        <div>Max temp</div>
+        <div>Min temp</div>
+        <div>Precipitation</div>
+    </div>
+    <div class="day4">
+        <div>Weather:</div>
+        <div>Max temp</div>
+        <div>Min temp</div>
+        <div>Precipitation</div>
+    </div>
+    <div class="day5">
+        <div>Weather:</div>
+        <div>Max temp</div>
+        <div>Min temp</div>
+        <div>Precipitation</div>
+    </div>
+</div>
