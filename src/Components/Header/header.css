@@ -13,8 +13,10 @@ img {
 
 .night {
   background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  color: rgb(128, 187, 255);
 }
 
 .day{
     background: radial-gradient(ellipse at bottom, hsl(212, 100%, 75%) 0%, #e0e5ff 100%);
+    color: rgb(27, 39, 53);
 }

@@ -1,10 +1,77 @@
 main {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.future-weather{
-    display: flex;
-    justify-content: space-between;
-    border: 3px solid white;
+.search-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.search-container > div {
+  font-size: 1.8rem;
+}
+
+.search-options {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+
+#city-input-name,
+#city-input-coordinates {
+  height: 20px;
+  width: 20px;
+}
+
+.search-order {
+  display: flex;
+}
+
+#search-field,
+#search-button {
+  flex: 1 1 auto;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  background-color: whitesmoke;
+}
+
+#search-field {
+  padding-left: 5px;
+  margin-right: 10px;
+}
+
+#search-button {
+  margin-left: 10px;
+}
+
+.future-weather {
+  font-size: 1.5rem;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.future-weather > div {
+  padding: 0 10px;
+  border: 0px solid rgba(255, 255, 255, 0.5);
+  border-right-width: 3px;
+}
+
+.future-weather > :first-child {
+  padding-left: 0px;
+}
+
+.future-weather > :last-child {
+  padding-right: 0px;
+  border-right-width: 0px;
 }

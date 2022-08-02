@@ -13,7 +13,7 @@ export function createHeader() {
 function setThemeImage() {
   const day = new Date();
   const currentHour = day.getHours();
-  if (6 <= currentHour <= 18) {
+  if (6 <= currentHour && currentHour <= 18) {
     setTheme(true);
     return dayIcon;
   } else {

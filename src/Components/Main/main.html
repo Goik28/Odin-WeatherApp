@@ -1,15 +1,17 @@
 <div class="search-container">
-    <div>Search for a city to know the forecast for the next few days, criteria:</div>
+    <div>Search for a city to know the forecast for the next few days. Use:</div>
     <form action="">
-        <div>
-            <input type="radio" name="city-input-type" id="city-input-name" value="Name" checked />
-            <label for="city-input-name">Name (Ex: London)</label>
-            <input type="radio" name="city-input-type" id="city-input-coordinates" value="Coordinates" />
-            <label for="city-input-coordinates">Lat-Long pair (Ex: 51.509865, -0.118092)</label>
+        <div class="search-options">
+            <div><input type="radio" name="city-input-type" id="city-input-name" value="Name" checked />
+                <label for="city-input-name">Name</label>
+            </div>
+            <div><input type="radio" name="city-input-type" id="city-input-coordinates" value="Coordinates" />
+                <label for="city-input-coordinates">Coordinates</label>
+            </div>
         </div>
-        <div>
-            <input type="text" name="city-input" id="" />
-            <input type="button" value="Search" />
+        <div class="search-order">
+            <input type="text" name="city-input" id="search-field" placeholder="Ex: London"/>
+            <input type="button" value="Search" id="search-button"/>
         </div>
     </form>
 </div>
