@@ -10,17 +10,26 @@
             </div>
         </div>
         <div class="search-order">
-            <input type="text" name="city-input" id="search-field" placeholder="Ex: London"/>
-            <input type="button" value="Search" id="search-button"/>
+            <input type="text" name="city-input" id="search-field" placeholder="Ex: London" />
+            <input type="submit" value="Search" id="search-button" />
         </div>
     </form>
 </div>
-<div class="current-weather">
-    <div>Local found: </div>
-    <div>Weather</div>
-    <div>Current Temp</div>
-    <div>Humidity</div>
-    <div>Wind speed</div>
+<div class="current-weather-container">
+    <div id="current-weather-location">Local found: </div>
+    <div class="current-weather">
+        <div>
+            <div id="current-weather-weather">Weather</div>
+            <div id="current-weather-currentTemp">Current Temp</div>
+            <div id="current-weather-feelsLike">Feels like</div>
+        </div>
+        <div id="current-weather-separator"></div>
+        <div>
+            <div id="current-weather-rain/snow">Rain/Snow (last 3h): none</div>
+            <div id="current-weather-humidity">Humidity</div>
+            <div id="current-weather-windSpeed">Wind speed</div>
+        </div>
+    </div>
 </div>
 <div class="future-weather">
     <div class="day1">
