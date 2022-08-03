@@ -1,6 +1,7 @@
 import hardHtml from "./main.html";
 import "./main.css";
-import { fetchCurrentWeather, fetchFutureWeather } from "./main";
+import { fetchCurrentWeather } from "./main";
+import { changeImage } from "../Header/header";
 
 export function createMain() {
   const main = document.createElement("main");
@@ -33,16 +34,12 @@ function setEventListeners(main) {
   main
     .querySelector("#search-field")
     .addEventListener("submit", populateCurrentWeather);
-  main
-    .querySelector("#search-button")
-    .addEventListener("click", populateFutureWeather);
-  main
-    .querySelector("#search-field")
-    .addEventListener("submit", populateFutureWeather);
 }
 
 async function populateCurrentWeather(e) {
   e.preventDefault();
+  document.getElementById("search-button").value = "Searching...";
+  document.getElementById("search-button").disabled = true;
   let option = true;
   if (document.getElementById("city-input-coordinates").checked) {
     option = false;
@@ -78,17 +75,9 @@ async function populateCurrentWeather(e) {
   document.getElementById(
     "current-weather-windSpeed"
   ).textContent = `Wind speed: ${data.wind.speed}m/s`;
-}
-
-async function populateFutureWeather(e) {
-    e.preventDefault();
-    let option = true;
-    if (document.getElementById("city-input-coordinates").checked) {
-      option = false;
-    }
-    const search = document.getElementById("search-field").value;
-    const data = await fetchFutureWeather(option, search);
-    console.log(data);
+  changeImage(data);
+  document.getElementById("search-button").value = "Search";
+  document.getElementById("search-button").disabled = false;
 }
 
 function capitalizeFirstLetter(string) {

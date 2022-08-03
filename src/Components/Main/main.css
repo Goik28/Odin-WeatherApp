@@ -82,27 +82,3 @@ main {
   border: 0px solid rgba(255, 255, 255, 0.5);
   border-right-width: 3px;
 }
-
-.future-weather {
-  font-size: 1.5rem;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  border: 3px solid rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
-}
-
-.future-weather > div {
-  padding: 0 10px;
-  border: 0px solid rgba(255, 255, 255, 0.5);
-  border-right-width: 3px;
-}
-
-.future-weather > :first-child {
-  padding-left: 0px;
-}
-
-.future-weather > :last-child {
-  padding-right: 0px;
-  border-right-width: 0px;
-}
