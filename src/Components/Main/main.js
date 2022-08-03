@@ -9,7 +9,7 @@ export async function fetchCurrentWeather(option, arg) {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(error);
+      window.alert("Couldn't call OpenWeather API");
     }
   } else {
     const lat = arg.split(",")[0].trim();
@@ -21,7 +21,7 @@ export async function fetchCurrentWeather(option, arg) {
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error(error);
+        window.alert("Couldn't call OpenWeather API");
     }
   }
 }

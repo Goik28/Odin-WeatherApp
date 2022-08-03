@@ -55,11 +55,15 @@ main {
 }
 
 .current-weather-container {
+  display: none;
   margin: 50px 0;
   padding: 20px;
   font-size: 1.5rem;
   border: 3px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
+}
+.show-container {
+  display: block;
 }
 
 .current-weather {
@@ -67,9 +71,12 @@ main {
   justify-content: space-between;
   font-size: 1.5rem;
   padding-top: 20px;
-  margin-top: 5px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border: 0px solid rgba(255, 255, 255, 0.5);
   border-top-width: 3px;
+  border-bottom-width: 3px;
 }
 
 .current-weather-container > :first-child {
@@ -81,4 +88,9 @@ main {
   width: 1px;
   border: 0px solid rgba(255, 255, 255, 0.5);
   border-right-width: 3px;
+}
+
+.weather-credit {
+  font-size: 1.2rem;
+  text-align: center;
 }

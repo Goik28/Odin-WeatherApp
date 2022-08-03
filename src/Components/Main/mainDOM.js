@@ -30,22 +30,49 @@ function setEventListeners(main) {
     .addEventListener("change", changePlaceholder);
   main
     .querySelector("#search-button")
-    .addEventListener("click", populateCurrentWeather);
+    .addEventListener("click", validateSearch);
   main
     .querySelector("#search-field")
-    .addEventListener("submit", populateCurrentWeather);
+    .addEventListener("submit", validateSearch);
 }
 
-async function populateCurrentWeather(e) {
+async function validateSearch(e) {
   e.preventDefault();
-  document.getElementById("search-button").value = "Searching...";
-  document.getElementById("search-button").disabled = true;
+  disableSearch();
+  if (!document.getElementById("search-field").value) {
+    window.alert("Search field is empty!");
+    enableSearch();
+    return;
+  }
   let option = true;
   if (document.getElementById("city-input-coordinates").checked) {
     option = false;
   }
   const search = document.getElementById("search-field").value;
   const data = await fetchCurrentWeather(option, search);
+  if (data.cod == "404") {
+    window.alert("City not found!");
+    enableSearch();
+    return;
+  }
+  populateCurrentWeather(data);
+  enableSearch();
+}
+
+function disableSearch() {
+  document.getElementById("search-button").value = "Searching...";
+  document.getElementById("search-button").disabled = true;
+}
+
+function enableSearch() {
+  document.getElementById("search-button").value = "Search";
+  document.getElementById("search-button").disabled = false;
+}
+
+function populateCurrentWeather(data) {
+  document
+    .querySelector(".current-weather-container")
+    .classList.add("show-container");
   const weather = capitalizeFirstLetter(data.weather["0"].description);
   document.getElementById(
     "current-weather-location"
@@ -59,15 +86,18 @@ async function populateCurrentWeather(e) {
   document.getElementById(
     "current-weather-feelsLike"
   ).textContent = `Feels like: ${data.main.feels_like} C°`;
-  if (data["rain.3h"]) {
+  if (data.rain) {
     document.getElementById(
       "current-weather-rain/snow"
-    ).textContent = `Rain/Snow (last 3h): ${data["rain.3h"]}mm`;
-  }
-  if (data["snow.3h"]) {
+    ).textContent = `Rain/Snow (last 1h): ${data.rain["1h"]}mm`;
+  } else if (data.snow) {
     document.getElementById(
       "current-weather-rain/snow"
-    ).textContent = `Rain/Snow (last 3h): ${data["snow.3h"]}mm`;
+    ).textContent = `Rain/Snow (last 1h): ${data.snow["1h"]}mm`;
+  } else {
+    document.getElementById(
+      "current-weather-rain/snow"
+    ).textContent = `Rain/Snow (last 1h): none`;
   }
   document.getElementById(
     "current-weather-humidity"
@@ -76,8 +106,6 @@ async function populateCurrentWeather(e) {
     "current-weather-windSpeed"
   ).textContent = `Wind speed: ${data.wind.speed}m/s`;
   changeImage(data);
-  document.getElementById("search-button").value = "Search";
-  document.getElementById("search-button").disabled = false;
 }
 
 function capitalizeFirstLetter(string) {
