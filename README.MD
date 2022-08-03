@@ -7,6 +7,10 @@ The objective of this project was to query the OpenWeather free API to show the 
 
 The project should use the asynchronous javascript functions, like async and await or promises and then.
 
+## Deploy
+
+https://goik28.github.io/Odin-WeatherApp/
+
 ### Credit
 
 Weather icons by Bas Milius - https://github.com/basmilius/weather-icons
