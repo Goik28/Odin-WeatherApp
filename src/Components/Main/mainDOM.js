@@ -49,7 +49,14 @@ async function validateSearch(e) {
     option = false;
   }
   const search = document.getElementById("search-field").value;
-  const data = await fetchCurrentWeather(option, search);
+  let data;
+  try {
+    data = await fetchCurrentWeather(option, search);
+  } catch (error) {
+    window.alert("Couldn't call OpenWeather API");
+    enableSearch();
+    return;
+  }
   if (data.cod == "404") {
     window.alert("City not found!");
     enableSearch();
