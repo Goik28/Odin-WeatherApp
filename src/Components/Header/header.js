@@ -75,6 +75,9 @@ export function changeImage(data) {
         document.getElementById("theme-image").src = nightCloudyIcon;
       }
       break;
+    case "Drizzle":
+      document.getElementById("theme-image").src = fogIcon;
+      break;
     case "Mist":
       document.getElementById("theme-image").src = fogIcon;
       break;

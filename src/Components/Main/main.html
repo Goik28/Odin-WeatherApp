@@ -1,6 +1,6 @@
 <div class="search-container">
-    <div>Search for a city to know the forecast for the next few days. Use:</div>
-    <form action="">
+    <div>Search for a city to know the current weather. Use:</div>
+    <form class="search-form" action="" novalidate>
         <div class="search-options">
             <div><input type="radio" name="city-input-type" id="city-input-name" value="Name" checked />
                 <label for="city-input-name">Name</label>
@@ -10,10 +10,11 @@
             </div>
         </div>
         <div class="search-order">
-            <input type="text" name="city-input" id="search-field" placeholder="Ex: London" />
+            <input type="text" name="city-input" id="search-field" placeholder="Ex: London" required/>
             <input type="submit" value="Search" id="search-button" />
         </div>
     </form>
+    <div class="error-container" id="error-message"></div>
 </div>
 <div class="current-weather-container">
     <div id="current-weather-location">Local found: </div>

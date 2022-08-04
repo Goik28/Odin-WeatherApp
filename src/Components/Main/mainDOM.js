@@ -28,19 +28,16 @@ function setEventListeners(main) {
   main
     .querySelector("#city-input-coordinates")
     .addEventListener("change", changePlaceholder);
-  main
-    .querySelector("#search-button")
-    .addEventListener("click", validateSearch);
-  main
-    .querySelector("#search-field")
-    .addEventListener("submit", validateSearch);
+  main.querySelector(".search-form").addEventListener("submit", validateSearch);
+  main.querySelector("#search-field").addEventListener("input", validateField);
+  main.querySelector("#search-field").addEventListener("focus", validateField);
 }
 
 async function validateSearch(e) {
   e.preventDefault();
+  disableErrorMessage();
   disableSearch();
-  if (!document.getElementById("search-field").value) {
-    window.alert("Search field is empty!");
+  if (!validateField()) {
     enableSearch();
     return;
   }
@@ -53,17 +50,40 @@ async function validateSearch(e) {
   try {
     data = await fetchCurrentWeather(option, search);
   } catch (error) {
-    window.alert("Couldn't call OpenWeather API");
+    enableErrorMessage("Couldn't call OpenWeather API");
     enableSearch();
     return;
   }
   if (data.cod == "404") {
-    window.alert("City not found!");
+    enableErrorMessage("City not found!");
     enableSearch();
     return;
   }
   populateCurrentWeather(data);
   enableSearch();
+}
+
+function validateField() {
+  if (document.getElementById("search-field").value.length == 0) {
+    document.getElementById("error-message").textContent =
+      "This field cannot be empty!";
+    document.getElementById("error-message").classList.add("show-container");
+    return false;
+  } else {
+    document.getElementById("error-message").textContent = "";
+    document.getElementById("error-message").classList.remove("show-container");
+    return true;
+  }
+}
+
+function disableErrorMessage() {
+  document.getElementById("error-message").textContent = "";
+  document.getElementById("error-message").classList.remove("show-container");
+}
+
+function enableErrorMessage(string) {
+  document.getElementById("error-message").textContent = string;
+  document.getElementById("error-message").classList.add("show-container");
 }
 
 function disableSearch() {
